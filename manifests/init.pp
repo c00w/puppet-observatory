@@ -1,9 +1,9 @@
 class observatory {
     package {
         "python-pip":
-            ensure  => latest
+            ensure  => latest;
         "git":
-            ensure  => latest
+            ensure  => latest;
     }
 
     exec {"/usr/bin/pip install -r /var/www/Observatory/observatory/requirements.txt":
