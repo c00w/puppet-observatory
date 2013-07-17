@@ -6,7 +6,7 @@ class observatory::ps {
             ensure  => latest;
     }
 
-    exec {"/usr/bin/createdb observatory":
+    exec {"/usr/bin/createdb observatory -E UTF8 -l en_US.UTF8 -T template0":
         user    => "postgres",
         require => Package["postgresql-9.1"],
         returns => [0, 1],
