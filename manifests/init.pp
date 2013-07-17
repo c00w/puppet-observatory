@@ -7,8 +7,6 @@ class observatory {
     }
 
     exec {"/usr/bin/pip install -r /var/www/Observatory/observatory/requirements.txt":
-        alias => "pip_install"}
-
-    Package["python-pip"] -> Exec["pip_install"]
-
+        require => Package["python-pip"],
+    }
 }
