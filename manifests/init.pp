@@ -1,6 +1,10 @@
 class observatory {
-    class{ "observatory::ps":}
-    class{ "observatory::fetch":}
+    class {"observatory::dir":
+        alias => "dir"
+    }
+    class {"observatory::ps":}
+    class {"observatory::fetch":}
+
     package {
         "python-pip":
             ensure  => latest;
@@ -12,6 +16,7 @@ class observatory {
         require => [
             Package["python-pip"],
             Class["observatory::ps"],
+            Class["dir"],
         ],
         alias   => "install"
     }
@@ -24,14 +29,5 @@ class observatory {
     exec {"/var/www/Observatory/observatory/dashboard/demo.py":
         require => Exec["db"],
         returns => [0, 1],
-    }
-
-    file {"/var/www/Observatory/observatory/media/style.css":
-        ensure  => present,
-        mode    => 0777
-    }
-
-    file {"/var/www/Observatory/observatory/media/observatory.js":
-        mode    => 0777
     }
 }
