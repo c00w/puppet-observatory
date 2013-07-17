@@ -24,4 +24,13 @@ class observatory {
         require => Exec["db"],
         returns => [0, 1],
     }
+
+    file {"/var/www/Observatory/observatory/media/style.css":
+        ensure  => present,
+        mode    => 0777
+    }
+
+    file {"/var/www/Observatory/observatory/media/observatory.js":
+        mode    => 0777
+    }
 }
