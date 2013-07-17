@@ -1,7 +1,6 @@
 class observatory {
-    class {"observatory::dir":
-        alias => "dir"
-    }
+    require "observatory::dir"
+
     class {"observatory::ps":}
     class {"observatory::fetch":}
 
@@ -16,7 +15,7 @@ class observatory {
         require => [
             Package["python-pip"],
             Class["observatory::ps"],
-            Class["dir"],
+            Class["observatory::dir"],
         ],
         alias   => "install"
     }
