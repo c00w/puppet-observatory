@@ -1,5 +1,6 @@
 class observatory {
     class{ "observatory::ps":}
+    class{ "observatory::fetch":}
     package {
         "python-pip":
             ensure  => latest;
