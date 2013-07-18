@@ -9,6 +9,8 @@ class observatory {
             ensure  => latest;
         "git":
             ensure  => latest;
+        "python-dev":
+            ensure  => latest;
     }
 
     exec {"/usr/bin/pip install -r /var/www/Observatory/observatory/requirements.txt":
