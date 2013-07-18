@@ -16,6 +16,7 @@ class observatory {
     exec {"/usr/bin/pip install -r /var/www/Observatory/observatory/requirements.txt":
         require => [
             Package["python-pip"],
+            Package["python-dev"],
             Class["observatory::ps"],
             Class["observatory::dir"],
         ],
