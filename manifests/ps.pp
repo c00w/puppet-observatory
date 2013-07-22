@@ -1,4 +1,7 @@
 class observatory::ps {
+
+    require "apt";
+
     package {
         "postgresql-9.1":
             ensure  => latest;
