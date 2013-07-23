@@ -7,8 +7,6 @@ class observatory {
     package {
         "python-pip":
             ensure  => latest;
-        "git":
-            ensure  => latest;
         "python-dev":
             ensure  => latest;
     }
