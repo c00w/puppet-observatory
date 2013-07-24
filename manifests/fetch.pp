@@ -11,7 +11,7 @@ class observatory::fetch {
 
     cron::job{
         'fetch_obs':
-            minute      => '*/3',
+            minute      => '0,30',
             hour        => '*',
             date        => '*',
             month       => '*',
