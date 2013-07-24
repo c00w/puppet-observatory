@@ -1,4 +1,8 @@
 class observatory::fetch {
+    package {"git-svn":
+        ensure  => latest,
+    }
+
     file {"/etc/init/fetch.conf":
         owner   => root,
         mode    => 0644,
