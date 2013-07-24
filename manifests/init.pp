@@ -18,23 +18,28 @@ class observatory {
             Class["observatory::ps"],
             Class["observatory::dir"],
         ],
+        subscribe   => Class["observatory::dir"],
+        refreshonly => true,
         alias   => "install"
     }
 
     exec {"/var/www/Observatory/observatory/manage.py syncdb --noinput":
-        require => Exec["install"],
+        subscribe   => Exec["install"],
+        refreshonly => true,
         alias   => "db0",
         user    => "www-data"
     }
 
     exec {"/var/www/Observatory/observatory/manage.py migrate dashboard --noinput":
-        require => Exec["db0"],
+        subscribe   => Exec["db0"],
+        refreshonly => true,
         alias   => "db1",
         user    => "www-data"
     }
 
     exec {"/var/www/Observatory/observatory/manage.py migrate todo --noinput":
-        require => Exec["db1"],
+        subscribe   => Exec["db1"],
+        refreshonly => true,
         alias   => "db2",
         user    => "www-data"
     }
