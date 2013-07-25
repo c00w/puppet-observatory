@@ -17,7 +17,7 @@ class observatory::fetch {
             month       => '*',
             weekday     => '*',
             user        => 'root',
-            command     => 'start fetch',
+            command     => 'start fetch >> /dev/null',
             environment => ['PATH="/usr/bin:/bin:/sbin"' ];
     }
 }
