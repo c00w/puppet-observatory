@@ -45,9 +45,9 @@ class observatory {
     }
 
     exec {"/var/www/Observatory/observatory/manage.py migrate emaillist --noinput":
-        subscribe   => Exec["db1"],
+        subscribe   => Exec["db2"],
         refreshonly => true,
-        alias   => "db2",
+        alias   => "db3",
         user    => "www-data"
     }
 
