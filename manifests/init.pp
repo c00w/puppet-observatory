@@ -20,7 +20,7 @@ class observatory {
         ],
         subscribe   => Class["observatory::dir"],
         refreshonly => true,
-        alias   => "install"
+        alias       => "install",
         timeout     => 0,
     }
 
