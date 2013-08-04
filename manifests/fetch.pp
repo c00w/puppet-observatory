@@ -1,6 +1,9 @@
 class observatory::fetch {
-    package {"git-svn":
-        ensure  => latest,
+    package {
+        "git-svn":
+            ensure  => latest;
+        "anacron":
+            ensure  => latest;
     }
 
     file {"/etc/init/fetch.conf":
@@ -18,6 +21,7 @@ class observatory::fetch {
             weekday     => '*',
             user        => 'root',
             command     => 'start fetch >> /dev/null',
-            environment => ['PATH="/usr/bin:/bin:/sbin"' ];
+            environment => ['PATH="/usr/bin:/bin:/sbin"' ],
+            require     => Package["anacron"],
     }
 }
