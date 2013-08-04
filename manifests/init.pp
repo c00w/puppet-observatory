@@ -21,6 +21,7 @@ class observatory {
         subscribe   => Class["observatory::dir"],
         refreshonly => true,
         alias   => "install"
+        timeout     => 0,
     }
 
     exec {"/var/www/Observatory/observatory/manage.py syncdb --noinput":
