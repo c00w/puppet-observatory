@@ -25,6 +25,7 @@ class observatory {
     }
 
     exec {"/var/www/Observatory/observatory/manage.py syncdb --noinput":
+        cwd         => "/var/www/Observatory/observatory",
         subscribe   => Exec["install"],
         refreshonly => true,
         alias   => "db0",
@@ -32,6 +33,7 @@ class observatory {
     }
 
     exec {"/var/www/Observatory/observatory/manage.py migrate dashboard --noinput":
+        cwd         => "/var/www/Observatory/observatory",
         subscribe   => Exec["db0"],
         refreshonly => true,
         alias   => "db1",
@@ -39,6 +41,7 @@ class observatory {
     }
 
     exec {"/var/www/Observatory/observatory/manage.py migrate todo --noinput":
+        cwd         => "/var/www/Observatory/observatory",
         subscribe   => Exec["db1"],
         refreshonly => true,
         alias   => "db2",
@@ -46,6 +49,7 @@ class observatory {
     }
 
     exec {"/var/www/Observatory/observatory/manage.py migrate emaillist --noinput":
+        cwd         => "/var/www/Observatory/observatory",
         subscribe   => Exec["db2"],
         refreshonly => true,
         alias   => "db3",
